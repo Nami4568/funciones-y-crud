@@ -1,0 +1,37 @@
+{% extends "./base.html" %}
+
+{% block contenido %}
+    <h2>Actualizar Película</h2>
+
+    <form action="/actualizar" method="post">
+        <label for="pelicula_id">ID de Película a Actualizar:</label>
+        <input type="number" name="pelicula_id" id="pelicula_id" required>
+        <br><br>
+        <button type="submit" class="btn btn-primary">Buscar Película</button>
+    </form>
+
+    {% if pelicula %}
+        <form action="/actualizar" method="post">
+            <input type="hidden" name="pelicula_id" value="{{ pelicula[0] }}" required>
+            <label for="nuevo_titulo">Nuevo Título:</label>
+            <input type="text" name="nuevo_titulo" id="nuevo_titulo" value="{{ pelicula[1] }}" required>
+            <br><br>
+            <label for="nuevo_genero">Nuevo Género:</label>
+            <input type="text" name="nuevo_genero" id="nuevo_genero" value="{{ pelicula[2] }}" required>
+            <br><br>
+            <label for="nueva_duracion">Nueva Duración (minutos):</label>
+            <input type="number" name="nueva_duracion" id="nueva_duracion" value="{{ pelicula[3] }}" required>
+            <br><br>
+            <label for="nuevo_anio">Nuevo Año:</label>
+            <input type="number" name="nuevo_anio" id="nuevo_anio" value="{{ pelicula[4] }}" required>
+            <br><br>
+            <button type="submit" class="btn btn-success">Actualizar Película</button>
+        </form>
+    {% endif %}
+
+    <div id="mensaje">
+        {% if mensaje %}
+            <p>{{ mensaje }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

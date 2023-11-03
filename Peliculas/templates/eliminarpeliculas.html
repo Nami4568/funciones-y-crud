@@ -1,0 +1,37 @@
+{% extends "./base.html" %}
+
+{% block contenido %}
+    <h2>Eliminar Película</h2>
+
+    {% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+    {% endif %}
+
+    <form action="/eliminar" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Género</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pelicula in peliculas %}
+                <tr>
+                    <td>{{ pelicula[0] }}</td>
+                    <td>{{ pelicula[1] }}</td>
+                    <td>{{ pelicula[2] }}</td>
+                    <td>
+                        <button type="submit" name="pelicula_id" value="{{ pelicula[0] }}" class="btn btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "./base.html" %}
+
+{% block contenido %}
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Género</th>
+                <th>Duración</th>
+                <th>Año</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pelicula in data.peliculas %}
+                <tr>
+                    <td>{{ pelicula[1] }}</td>
+                    <td>{{ pelicula[2] }}</td>
+                    <td>{{ pelicula[3] }}</td>
+                    <td>{{ pelicula[4] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
